@@ -1,0 +1,34 @@
+<!-- sender_confirmation.html -->
+{% extends 'valentine_app/base.html' %}
+
+{% block title %}Sender Confirmation{% endblock %}
+
+{% block content %}
+<div id="modal-overlay"></div>
+
+<div id="modal">
+    <div id="heart-shape">❤️</div>
+
+    <h1>Ask that special someone to be your valentine</h1>
+    <p>Congratulations! You've submitted your email. Here is your unique link to share:</p>
+    
+    <div class="link-container">
+        <input type="text" value="{{ request.scheme }}://{{ request.get_host }}/{{ sender_link }}" readonly id="sender-link">
+
+        <button onclick="copyLink()">Copy Link</button>
+    </div>
+
+    <p>Share this link with your friends!</p>
+</div>
+
+<script>
+    function copyLink() {
+        var copyText = document.getElementById('sender-link');
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand('copy');
+        alert("Link copied to clipboard!");
+    }
+</script>
+
+{% endblock %}

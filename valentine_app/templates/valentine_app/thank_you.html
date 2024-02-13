@@ -1,0 +1,35 @@
+{% extends 'valentine_app/base.html' %}
+
+{% block title %}Thank You{% endblock %}
+
+{% block content %}
+<!-- Load the static tag to include static files -->
+{% load static %}
+
+{% comment %} Debugging line to check the value of response {% endcomment %}
+<p>Debug: {{ response }}</p>
+
+{% if response == 'yes' %}
+    <div>
+        <img src="{% static 'photos/heart-shaped-cookie-stick-with-rose-bouquet-removebg-preview.png' %}" alt="Flower" />
+        <p class="alert-message" id="alert-message">Yay! Happy Valentine's Day, Babyy! I LOVE U Im so Happy ❤️🌹</p>
+        <button class="alert-button" onclick="closeAlert()">Click Here💕</button>
+    </div>
+{% else %}
+    <div>
+        <img src="{% static 'photos/9564185.png' %}" alt="Alternative Flower" />
+        <p class="alert-message" id="alert-message">Oh, that's okay. 😢 If you change your mind, I'll be here. Have a wonderful day! 💔</p>
+        <button class="alert-button" onclick="closeAlert()">Click Here💕</button>
+    </div>
+{% endif %}
+
+<!-- Love emojis container -->
+<!-- <div class="love-emojis">❤️</div>
+<div class="love-emojis">💖</div>
+<div class="love-emojis">💕</div>
+<div class="love-emojis">💘</div> -->
+<!-- Add more love emojis as needed -->
+
+<div class="thanks-message" id="thanks-message"></div>
+
+{% endblock %}

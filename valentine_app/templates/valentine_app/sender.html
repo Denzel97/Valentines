@@ -1,0 +1,18 @@
+{% extends 'valentine_app/base.html' %}
+
+{% block title %}Ask Someone to Be Your Valentine{% endblock %}
+
+{% block content %}
+<div id="modal-overlay"></div>
+
+<div id="modal">
+    <div id="heart-shape">❤️</div>
+
+    <h1>Ask that special someone to be your valentines</h1>
+    <form method="post" action="{% url 'sender' %}">
+        {% csrf_token %}
+        {{ sender_form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

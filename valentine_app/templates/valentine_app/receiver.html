@@ -1,0 +1,23 @@
+{% extends 'valentine_app/base.html' %}
+
+{% block title %}Will You Be My Valentine?{% endblock %}
+
+{% block content %}
+    <!-- Load the static tag to include static files -->
+    {% load static %}
+
+    <div id="modal-overlay"></div>
+
+    <div id="modal">
+        <div id="heart-shape">❤️</div>
+
+        <h1>Will You Be My Valentine Babyy?</h1>
+        <p>Let's make this day special together!</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ receiver_form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}
