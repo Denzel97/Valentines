@@ -1,0 +1,241 @@
+body {
+    background-color: #BC4273;
+    /* Black background for better contrast */
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    /* Hide overflowing love emojis */
+    position: relative;
+}
+
+#modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #BC4273;
+    /* Semi-transparent red overlay */
+    z-index: 1;
+    animation: fadeInOverlay 1s ease-out;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    /* White background */
+    padding: 20px;
+
+    /* border-radius: 50%; */
+    box-shadow: 0 0 20px rgba(57, 56, 56, 0.5);
+    text-align: center;
+    animation: fadeInModal 1s ease-out;
+    z-index: 2;
+}
+
+#heart-shape {
+    font-size: 50px;
+    /* Larger size */
+    color: #FF69B4;
+    /* Pink color */
+}
+
+h1 {
+    color: #BC4273;
+    /* Red text */
+}
+
+p {
+    color: #BC4273;
+    /* Darker white text */
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+button {
+    background-color: white;
+    /* Red button */
+    color: #BC4273;
+    /* White text */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+
+    border: 2px solid #BC4273;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, transparent 50%, #BC4273 50%);
+    background-size: 100% 200%;
+    background-position: 0 100%;
+    color: #BC4273;
+    animation: fillWineGlass 0.5s ease-in-out forwards;
+}
+
+@keyframes fillWineGlass {
+    to {
+        background-position: 0 0;
+    }
+}
+
+img {
+    max-width: 100%;
+    /* height: auto; */
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.alert-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #BC4273;
+    /* Semi-transparent white overlay */
+    z-index: 3;
+    /* animation: fadeInOverlay 1s ease-out; */
+}
+
+.alert-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #BC4273;
+    /* Red background */
+    color: #ffffff;
+    /* White text */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    /* animation: fadeInAlert 1s ease-out; */
+    z-index: 4;
+}
+
+.alert-box img {
+    width: 200px;
+}
+
+.alert-message {
+    font-size: 18px;
+    line-height: 1.5;
+    color: white;
+    /* Red text */
+    margin-top: 10px;
+}
+
+.alert-button {
+    border: 1px solid white;
+    color: #BC4273;
+    /* Red text */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    /* transition: background-color 0.3s ease, color 0.3s ease; */
+}
+
+.alert-button:hover {
+    background-color: #eeeeee;
+    /* Lighter white on hover */
+    color: #BC4273;
+    /* Darker red text on hover */
+}
+
+/* Love emojis animation */
+.love-emojis {
+    position: absolute;
+    pointer-events: none;
+    font-size: 30px;
+    /* Larger size */
+    color: #FF69B4;
+    /* Pink color */
+    animation: randomDirection 10s linear infinite;
+}
+
+.thanks-message {
+    color: white;
+    /* White text */
+    font-size: 20px;
+    margin-top: 20px;
+    border: 1px solid white;
+    padding: 20px 10px;
+    box-shadow: white 12px 8px 10px 2px;
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInAlert {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Love emojis animation */
+@keyframes randomDirection {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(50px, -50px);
+    }
+
+    50% {
+        transform: translate(-100px, 0);
+    }
+
+    75% {
+        transform: translate(50px, 50px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
