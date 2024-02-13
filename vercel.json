@@ -2,8 +2,7 @@
     "builds": [
       {
         "src": "valentine_project/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb" }
+        "use": "@vercel/python"
       }
     ],
     "routes": [
