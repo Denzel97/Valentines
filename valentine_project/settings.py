@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-o)o#8uh$j_2j)huys0_igi2%gocm47-j!vfk8o+*ogr8@28&)+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','.vercel.app']
+ALLOWED_HOSTS = ['vercel.app', '.now.sh', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -70,12 +70,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'valentine_project.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {}
-
+DATABASES = { 
+    
+    'default': { 
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+        'HOST': 'viaduct.proxy.rlwy.net', 
+        'NAME': 'railway', 
+        'USER': 'postgres', 
+        'PASSWORD': '4Cdg-4--ebFAABC34c3Ac4aGgFC53-f6', 
+        'PORT': '52775', 
+    } 
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -113,6 +118,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 MEDIA_URL = '/media/'
